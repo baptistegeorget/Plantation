@@ -6,7 +6,20 @@ class Algorithm:
         self.__matrix = matrix
 
     def gluttonous(self):
-        pass
+        list_of_species = []
+        total_cost = 0
+        last_column = -1
+        for i in range(len(self.__matrix)):
+            cost = float('inf')
+            actual_column = -1
+            for j in range(len(self.__matrix[i])):
+                if last_column != j and cost > self.__matrix[i][j]:
+                    actual_column = j
+                    cost = self.__matrix[i][j]
+            last_column = actual_column
+            total_cost += cost
+            list_of_species.append(cost)
+        return total_cost, list_of_species
 
     def naive(self):
         pass

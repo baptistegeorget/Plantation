@@ -21,11 +21,11 @@ class TextToMatrix:
                 value += content[i]
                 i += 1
             elif content[i] != "\n":
-                matrix[x].append(value)
+                matrix[x].append(int(value))
                 value = ""
                 i += 1
             else:
-                matrix[x].append(value)
+                matrix[x].append(int(value))
                 value = ""
                 x += 1
                 i += 1
