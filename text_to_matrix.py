@@ -6,11 +6,17 @@ class TextToMatrix:
         self._name_file = name_file
 
     def __get_content(self):
+        """
+        :return: Le contenu d'un fichier texte.
+        """
         with open(self._name_file) as f:
             content = f.read()
             return content
 
     def get_matrix(self):
+        """
+        :return: Une liste bidimensionnelle d'entier.
+        """
         content = self.__get_content()
         matrix = [[]]
         x = 0
