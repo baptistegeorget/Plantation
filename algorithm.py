@@ -81,14 +81,15 @@ class Algorithm:
         return total_cost, column2
 
     def bottom_up(self):
-        """ 
-        :return: Le coût total de la plantation.
-        """############################################################## A FINIR
-        n = len(self.__matrix)
-        memo = {}
-        memo[0] = (self.__min(self.__matrix[0], -1), -1)
-        for i in range(1, n):
-            min_value, column = self.__min(self.__matrix[i], memo[i - 1][1])
-            total_cost = memo[i - 1][0] + min_value
-            memo[i] = (total_cost, column)
-        return memo[n - 1][0]
+        results = [[0] * len(self.__matrix[0]) for _ in range(len(self.__matrix))]
+        for j in range(len(self.__matrix[0])):
+            results[0][j] = self.__matrix[0][j]
+        for i in range(1, len(self.__matrix)):
+            for j in range(len(self.__matrix[0])):
+                min_cost = float('inf')
+                for k in range(len(self.__matrix[0])):
+                    if k != j:
+                        min_cost = min(min_cost, results[i - 1][k] + self.__matrix[i][j])
+                results[i][j] = min_cost
+        total_cost = min(results[len(self.__matrix) - 1])
+        return total_cost

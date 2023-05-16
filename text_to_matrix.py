@@ -15,7 +15,7 @@ class TextToMatrix:
 
     def get_matrix(self):
         """
-        :return: Une liste bidimensionnelle d'entier.
+        :return: Une liste bidimensionnelle d'entiers.
         """
         content = self.__get_content()
         matrix = [[]]

@@ -22,8 +22,15 @@ def generate_random_matrix(rows, cols, min_value, max_value):
 def main():
     random_matrix = generate_random_matrix(100, 100, 55, 99)
     matrix = TextToMatrix(FILE).get_matrix()
-    algorithm = Algorithm(matrix)
-    print(algorithm.top_down())
+
+    print("\nAlgorithme \"Glouton\" :")
+    print(Algorithm(matrix).gluttonous())
+    print("\nAlgorithme \"Récursif naïf\" :")
+    print(Algorithm(matrix).naive())
+    print("\nAlgorithme \"Top down\" :")
+    print(Algorithm(matrix).top_down())
+    print("\nAlgorithme \"Bottom up\" :")
+    print(Algorithm(matrix).bottom_up())
 
 
 if __name__ == "__main__":
